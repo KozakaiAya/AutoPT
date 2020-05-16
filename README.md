@@ -53,3 +53,5 @@ This project is currently under development.
 This project is based on the following open-source projects:
 * https://gist.github.com/littleya/86cd895f97b614ebea376a1008291ccf
 * https://github.com/JohnDoee/deluge-client
+* https://github.com/Trim21/transmission-rpc
+* https://pypi.org/project/torf/

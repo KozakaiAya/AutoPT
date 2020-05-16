@@ -1,3 +1,5 @@
 deluge-client
 pyyaml
 yapf
+torf
+transmission-rpc
