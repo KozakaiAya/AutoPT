@@ -1,7 +1,7 @@
 import yaml
 import time
 
-if __name__ == '__main__' and __package__ is None: # WTF is PEP 328
+if __name__ == '__main__' and __package__ is None:  # WTF is PEP 328
     from os import sys, path
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
@@ -11,7 +11,10 @@ import bt_client.deluge
 with open('../config/deluge.yaml', 'r') as f:
     deluge_config = yaml.load(f)
 
-deluge = DelugeClient(rpc_address=deluge_config['rpc_address'], rpc_port=deluge_config['rpc_port'], username=deluge_config['username'], password=deluge_config['password'])
+deluge = DelugeClient(rpc_address=deluge_config['rpc_address'],
+                      rpc_port=deluge_config['rpc_port'],
+                      username=deluge_config['username'],
+                      password=deluge_config['password'])
 
 ret = deluge.connect()
 if ret.successful():
@@ -39,5 +42,4 @@ if torrent_idx in tlist:
             print("Disconnect succeeded")
     else:
         print(ret.get_error_msg)
-
 

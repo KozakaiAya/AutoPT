@@ -11,15 +11,19 @@ class BTClientBase():
     def list_torrent(self):
         raise NotImplementedError
 
+    def get_torrent_status(self, idx):
+        raise NotImplementedError
+
     def del_torrent(self, idx):
         raise NotImplementedError
 
     def disconnect(self):
         raise NotImplementedError
 
+
 class ClientRet():
     def __init__(self, ret_type, ret_value=None):
-        self.ret_type = ret_type # Error: <0
+        self.ret_type = ret_type  # Error: <0
         self.ret_value = ret_value
 
         self.ret_dict = {
@@ -34,10 +38,16 @@ class ClientRet():
         }
 
     def get_error_msg(self):
-        if  self.ret_type < 0:
+        if self.ret_type < 0:
             return self.ret_dict[self.ret_type]
         else:
             return "All Green"
-    
+
     def successful(self):
         return self.ret_type >= 0
+
+
+torrent_status_key = [
+    'name', 'torrent_id', 'is_finished'
+]  # Ref: https://github.com/deluge-torrent/deluge/blob/d62987089e55d6afe7c85addbdcb6ab515db69ea/deluge/core/torrent.py#L646
+TorrentStatus = collections.namedtuple('TorrentStatus', torrent_status_key)
