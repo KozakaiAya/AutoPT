@@ -7,7 +7,12 @@ from bt_client.client_base import BTClientBase, ClientRet
 
 torrent_status_key = ['torrent_id', 'is_finished'] # Ref: https://github.com/deluge-torrent/deluge/blob/d62987089e55d6afe7c85addbdcb6ab515db69ea/deluge/core/torrent.py#L646
 TorrentStatus = collections.namedtuple('TorrentStatus', torrent_status_key)
-SessionStatus = collections.namedtuple('SessionStatus', ['torrent_list']) 
+
+def is_torrent_finished(session_status, torrent_idx):
+    if torrent_idx in session_status:
+        return session_status[torrent_idx].is_finished
+    else:
+        return False
 
 class DelugeClient(BTClientBase):
     def __init__(self, rpc_address, rpc_port, username, password, config=None):
@@ -65,14 +70,12 @@ class DelugeClient(BTClientBase):
             return ret
         
         torrent_id_list = self.client.core.get_session_state()
-        torrent_list = []
+        session_status = {}
         for idx in torrent_id_list:
             torrent_status_raw = self.client.core.get_torrent_status(torrent_id=idx, keys=torrent_status_key)
             torrent_status = TorrentStatus(torrent_id=torrent_status_raw['torrent_id'], is_finished=torrent_status_raw['is_finished'])
-            
-            torrent_list.append(torrent_status)
-        
-        session_status = SessionStatus(torrent_list=torrent_list)
+            session_status[torrent_status.torrent_id] = torrent_status
+    
 
         ret = ClientRet(ret_type=4, ret_value=session_status)
 
