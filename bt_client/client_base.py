@@ -38,7 +38,7 @@ class ClientRet():
             0: "All Green",
             -2: "Client Not Connected",
             -3: "Torrent Add Error",
-            -4: "Torrent List Error", 
+            -4: "Torrent List Error",
             -5: "Delete Torrent Error",
             -6: "Torrent Info Error"
         }

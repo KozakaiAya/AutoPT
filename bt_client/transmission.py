@@ -6,6 +6,7 @@ import math
 from bt_client.client_base import BTClientBase, TorrentStatus, ClientRet
 from utils.cmd import execute
 
+
 # Note: Please modify the 'User' in /lib/systemd/system/transmission-daemon.service to 'root'
 # Note: Please follow https://help.ubuntu.com/community/TransmissionHowTo to set the 'rpc-whitelist' and change the 'umask' to 2
 class TransmissionClient(BTClientBase):
@@ -86,11 +87,13 @@ class TransmissionClient(BTClientBase):
         if not self.connected:
             ret = ClientRet(ret_type=-2)
             return ret
-        
+
         try:
             torrent_obj = self.client.get_torrent(idx)
             is_finished = math.isclose(torrent_obj.progress, 100)
-            torrent_status = TorrentStatus(torrent_id=torrent_obj.hashString, is_finished=is_finished, name=torrent_obj.name)
+            torrent_status = TorrentStatus(torrent_id=torrent_obj.hashString,
+                                           is_finished=is_finished,
+                                           name=torrent_obj.name)
 
             ret = ClientRet(ret_type=6, ret_value=torrent_status)
         except:
@@ -102,7 +105,7 @@ class TransmissionClient(BTClientBase):
         if not self.connected:
             ret = ClientRet(ret_type=-2)
             return ret
-        
+
         try:
             torrent_obj = self.client.get_torrent(idx)
             torrent_exist = True
@@ -120,7 +123,7 @@ class TransmissionClient(BTClientBase):
         else:
             ret = ClientRet(ret_type=-5)
             return ret
-        
+
     def disconnect(self):
         self.connected = False
         ret = ClientRet(ret_type=0)
