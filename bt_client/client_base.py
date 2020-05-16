@@ -14,6 +14,9 @@ class BTClientBase():
     def del_torrent(self, idx):
         raise NotImplementedError
 
+    def disconnect(self):
+        raise NotImplementedError
+
 class ClientRet():
     def __init__(self, ret_type, ret_value=None):
         self.ret_type = ret_type # Error: <0

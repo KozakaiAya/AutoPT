@@ -35,7 +35,7 @@ class DelugeClient(BTClientBase):
         self.connected = self.client.connected
 
         if self.connected:
-            ret = ClientRet(ret_type=0)
+            ret = ClientRet(ret_type=2)
         else:
             ret = ClientRet(ret_type=-2)
         return ret
@@ -101,6 +101,10 @@ class DelugeClient(BTClientBase):
             ret = ClientRet(ret_value=-5)
             return ret
     
-    
-            
+    def disconnect(self):
+        if self.connected:
+            self.client.disconnect()
+            self.connected = False
+        ret = ClientRet(ret_type=0)
+        return ret
     
