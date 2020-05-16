@@ -1,6 +1,10 @@
 import yaml
 import time
 
+if __name__ == '__main__' and __package__ is None: # WTF is PEP 328?
+    from os import sys, path
+    sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+
 from ..bt_client.deluge import DelugeClient
 import bt_client.deluge
 
