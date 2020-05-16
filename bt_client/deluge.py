@@ -51,7 +51,7 @@ class DelugeClient(BTClientBase):
             options['download_location'] = str(Path(download_path).resolve())
 
         abs_torrent_path = str(Path(torrent_path).resolve())
-        torrent_content = open(abs_torrent_path, 'r').read()
+        torrent_content = open(abs_torrent_path, 'rb').read()
         torrent_base64 = base64.b64encode(torrent_content)
 
         torrent_idx = self.client.core.add_torrent_file(filename=abs_torrent_path, filedump=torrent_base64, options=options)
