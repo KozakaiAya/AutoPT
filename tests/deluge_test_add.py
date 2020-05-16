@@ -22,6 +22,7 @@ if ret.successful():
 else:
     print(ret.get_error_msg())
 
+
 ret = deluge.add_torrent('./test.torrent', download_path='./test_download')
 if ret.successful():
     torrent_idx = ret.ret_value
@@ -32,8 +33,9 @@ else:
     print(ret.get_error_msg())
     exit(-1)
 
+
 while True:
-    ret = deluge.list_torrent()
+    ret = deluge.list_torrents()
     if ret.successful():
         sess = ret.ret_value
     else:
@@ -42,6 +44,9 @@ while True:
 
     if bt_client.deluge.is_torrent_finished(sess, torrent_idx):
         print("Download finished")
+        ret = deluge.get_torrent_status(torrent_idx)
+        print(ret.ret_value)
+
         break
     else:
         time.sleep(1)

@@ -68,7 +68,7 @@ class DelugeClient(BTClientBase):
 
         return ret
 
-    def list_torrent(self):
+    def list_torrents(self):
         if not self.connected:
             ret = ClientRet(ret_type=-2)
             return ret
@@ -80,24 +80,27 @@ class DelugeClient(BTClientBase):
                                                                      keys=bt_client.client_base.torrent_status_key)
             torrent_status = TorrentStatus(torrent_id=idx.decode(),
                                            is_finished=torrent_status_raw['is_finished'.encode()],
-                                           name=torrent_status_raw['name'.encode])
+                                           name=torrent_status_raw['name'.encode()].decode())
             session_status[torrent_status.torrent_id] = torrent_status
 
         ret = ClientRet(ret_type=4, ret_value=session_status)
 
         return ret
 
-    def get_torrent_status(self, idx):
+    def get_torrent_status(self, idx):  # All the value inputted and returned back should be string, not bytearray
         if not self.connected:
             ret = ClientRet(ret_type=-2)
             return ret
 
-        idx = idx.encode()
+        idx = idx.encode() # Convert to byte array for Deluge
         torrent_status_raw = self.client.core.get_torrent_status(torrent_id=idx,
                                                                  keys=bt_client.client_base.torrent_status_key)
         torrent_status = TorrentStatus(torrent_id=idx.decode(),
-                                       is_finished=torrent_status_raw['is_finished'.encode()],
-                                       name=torrent_status_raw['name'.encode])
+                                       is_finished=torrent_status_raw['is_finished'.encode()],  # Decode bytearray to string
+                                       name=torrent_status_raw['name'.encode()].decode())       # Decode bytearray to string 
+
+        ret = ClientRet(ret_type=6, ret_value=torrent_status)
+        return ret
 
     def del_torrent(self, idx):
         if not self.connected:

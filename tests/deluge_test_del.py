@@ -25,7 +25,7 @@ else:
 with open('./test_download/torrent_id', 'r') as f:
     torrent_idx = f.read()
 
-ret = deluge.list_torrent()
+ret = deluge.list_torrents()
 if ret.successful():
     tlist = ret.ret_value
 else:

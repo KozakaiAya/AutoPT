@@ -1,3 +1,5 @@
+import collections
+
 class BTClientBase():
     def __init__(self, rpc_address, rpc_port, username, password, config=None):
         raise NotImplementedError
@@ -8,7 +10,7 @@ class BTClientBase():
     def add_torrent(self, torrent_path, download_path=None):
         raise NotImplementedError
 
-    def list_torrent(self):
+    def list_torrents(self):
         raise NotImplementedError
 
     def get_torrent_status(self, idx):
@@ -27,6 +29,7 @@ class ClientRet():
         self.ret_value = ret_value
 
         self.ret_dict = {
+            6: "Torrent Info",
             5: "Delete Torrent Successful",
             4: "Torrent List",
             3: "Torrent ID",
