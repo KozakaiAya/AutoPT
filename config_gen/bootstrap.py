@@ -8,3 +8,13 @@ deluge_config['password'] = 'some_long_password or <username>:<password>:xx in ~
 
 with open('./deluge_ex.yaml', 'w') as f:
     yaml.dump(deluge_config, f)
+
+transmission_config = {}
+transmission_config['rpc_address'] = '127.0.0.1'
+transmission_config['rpc_port'] = 9091
+transmission_config['username'] = 'username'
+transmission_config['password'] = 'password'
+transmission_config['path'] = '/transmission/'
+
+with open('./transmission_ex.yaml', 'w') as f:
+    yaml.dump(transmission_config, f)
