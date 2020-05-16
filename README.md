@@ -6,8 +6,8 @@ This project is currently under development.
 
 ## Current Goal
 
-* Provide the infrastructure for PT users' common operations, for example, BT client interaction, archiving, backup, etc.
-* Automate the process of download and backup with a list of TorrentID.
+* Provide the infrastructure of the PT users' common operations, for example, BT client interaction, archiving, backup, etc.
+* Automate the process of downloading, archiving and making backup with a list of TorrentID.
 
 ## Roadmap
 
