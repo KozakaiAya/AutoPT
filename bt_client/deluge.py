@@ -57,7 +57,7 @@ class DelugeClient(BTClientBase):
         torrent_idx = self.client.core.add_torrent_file(filename=abs_torrent_path, filedump=torrent_base64, options=options)
 
         if torrent_idx is not None:
-            ret = ClientRet(ret_type=3, ret_value=torrent_idx)
+            ret = ClientRet(ret_type=3, ret_value=torrent_idx.decode())
         else:
             ret = ClientRet(ret_type=-3)
 
@@ -73,7 +73,7 @@ class DelugeClient(BTClientBase):
         session_status = {}
         for idx in torrent_id_list:
             torrent_status_raw = self.client.core.get_torrent_status(torrent_id=idx, keys=torrent_status_key)
-            torrent_status = TorrentStatus(torrent_id=torrent_status_raw['torrent_id'], is_finished=torrent_status_raw['is_finished'])
+            torrent_status = TorrentStatus(torrent_id=idx.decode(), is_finished=torrent_status_raw['is_finished'.encode()])
             session_status[torrent_status.torrent_id] = torrent_status
     
 
