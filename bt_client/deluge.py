@@ -43,7 +43,7 @@ class DelugeClient(BTClientBase):
         options = {} # Ref: https://github.com/deluge-torrent/deluge/blob/1.3-stable/deluge/core/torrent.py
         options['add_paused'] = False
         if download_path is not None:
-            options['download_location'] = download_path
+            options['download_location'] = str(Path(download_path).resolve())
 
         abs_torrent_path = str(Path(torrent_path).resolve())
         torrent_content = open(abs_torrent_path, 'r').read()
