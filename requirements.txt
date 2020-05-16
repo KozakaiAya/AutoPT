@@ -1,1 +1,2 @@
 deluge-client
+pyyaml

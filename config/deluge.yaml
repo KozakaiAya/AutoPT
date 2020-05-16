@@ -1,0 +1,4 @@
+password: some_long_password or <username>:<password>:10 in ~/.config/deluge/auth
+rpc_address: 127.0.0.1
+rpc_port: 58846
+username: localclient or <username>:<password>:10 in ~/.config/deluge/auth

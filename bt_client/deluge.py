@@ -13,7 +13,7 @@ class DelugeClient(BTClientBase):
         if config is None:
             self.use_config = False
             self.rpc_address = rpc_address
-            self.rpc_port = rpc_port
+            self.rpc_port = int(rpc_port)
             self.user = username
             self.password = password
 
