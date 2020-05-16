@@ -31,19 +31,22 @@ This project is currently under development.
 - [ ] RAR
 - [ ] PAR2
 
-### Configuration Format Definition
+### Configuration Files
 
 - [x] Deluge
 - [ ] Transmission
 - [ ] qBittorrent
 - [ ] Rclone/gclone
 - [ ] Cookie management for NexusPHP-based websites
+- [ ] Multi-seedbox/client profile management and selection
+- [ ] IFTTT, chain of tasks
 - [ ] RSS (maybe...)
 
 ### Miscellaneous Functions
 
 - [ ] Folder operations
 - [ ] Subprocess operations
+- [ ] SSH tunnel and port mapping
 
 ## References
 
