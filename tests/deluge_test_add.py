@@ -2,7 +2,7 @@ import yaml
 import time
 
 from bt_client.deluge import DelugeClient
-import bt_client.deluge
+import ../bt_client.deluge
 
 with open('../config/deluge.yaml', 'r') as f:
     deluge_config = yaml.load(f)
