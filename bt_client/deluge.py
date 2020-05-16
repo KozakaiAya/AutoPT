@@ -1,6 +1,7 @@
 from deluge_client import DelugeRPCClient
 import base64
 import collections
+from pathlib import Path
 
 from bt_client.client_base import BTClientBase, ClientRet
 
@@ -44,10 +45,11 @@ class DelugeClient(BTClientBase):
         if download_path is not None:
             options['download_location'] = download_path
 
-        torrent_content = open(torrent_path, 'r').read()
+        abs_torrent_path = str(Path(torrent_path).resolve())
+        torrent_content = open(abs_torrent_path, 'r').read()
         torrent_base64 = base64.b64encode(torrent_content)
 
-        torrent_idx = self.client.core.add_torrent_file(filename=torrent_path, filedump=torrent_base64, options=options)
+        torrent_idx = self.client.core.add_torrent_file(filename=abs_torrent_path, filedump=torrent_base64, options=options)
 
         if torrent_idx is not None:
             ret = ClientRet(ret_type=3, ret_value=torrent_idx)
