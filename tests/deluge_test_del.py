@@ -34,6 +34,9 @@ if torrent_idx in tlist:
     ret = deluge.del_torrent(torrent_idx)
     if ret.successful():
         print("Delete succeeded")
+        ret = deluge.disconnect()
+        if ret.successful():
+            print("Disconnect succeeded")
     else:
         print(ret.get_error_msg)
 
