@@ -20,7 +20,7 @@ class DelugeClient(BTClientBase):
             self.use_config = False
             self.rpc_address = rpc_address
             self.rpc_port = int(rpc_port)
-            self.user = username
+            self.username = username
             self.password = password
 
             self.client = DelugeRPCClient(self.rpc_address, self.rpc_port, self.username, self.password, automatic_reconnect=True)
