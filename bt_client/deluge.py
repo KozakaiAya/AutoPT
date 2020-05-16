@@ -92,12 +92,13 @@ class DelugeClient(BTClientBase):
             ret = ClientRet(ret_type=-2)
             return ret
 
-        idx = idx.encode() # Convert to byte array for Deluge
+        idx = idx.encode()  # Convert to byte array for Deluge
         torrent_status_raw = self.client.core.get_torrent_status(torrent_id=idx,
                                                                  keys=bt_client.client_base.torrent_status_key)
-        torrent_status = TorrentStatus(torrent_id=idx.decode(),
-                                       is_finished=torrent_status_raw['is_finished'.encode()],  # Decode bytearray to string
-                                       name=torrent_status_raw['name'.encode()].decode())       # Decode bytearray to string 
+        torrent_status = TorrentStatus(
+            torrent_id=idx.decode(),
+            is_finished=torrent_status_raw['is_finished'.encode()],  # Decode bytearray to string
+            name=torrent_status_raw['name'.encode()].decode())  # Decode bytearray to string
 
         ret = ClientRet(ret_type=6, ret_value=torrent_status)
         return ret

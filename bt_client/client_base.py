@@ -1,5 +1,6 @@
 import collections
 
+
 class BTClientBase():
     def __init__(self, rpc_address, rpc_port, username, password, config=None):
         raise NotImplementedError
