@@ -126,5 +126,6 @@ class TransmissionClient(BTClientBase):
 
     def disconnect(self):
         self.connected = False
+        self.client = None
         ret = ClientRet(ret_type=0)
         return ret
