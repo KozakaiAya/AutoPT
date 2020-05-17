@@ -1,0 +1,6 @@
+config:
+  use_https: false
+password: password
+rpc_address: 127.0.0.1
+rpc_port: 29000
+username: username

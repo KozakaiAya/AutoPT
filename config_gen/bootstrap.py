@@ -18,3 +18,14 @@ transmission_config['config'] = {'path': '/transmission/rpc'}
 
 with open('./transmission_ex.yaml', 'w') as f:
     yaml.safe_dump(transmission_config, f)
+
+qb_config = {}
+qb_config['rpc_address'] = '127.0.0.1'
+qb_config['rpc_port'] = 29000
+qb_config['username'] = 'username'
+qb_config['password'] = 'password'
+qb_config['config'] = {'use_https': False}
+
+with open('./qbittorrent_ex.yaml', 'w') as f:
+    yaml.safe_dump(qb_config, f)
+
