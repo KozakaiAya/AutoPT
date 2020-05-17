@@ -16,7 +16,7 @@ This project is currently under development.
 - [x] Definition of base operations
 - [x] Deluge interaction
 - [x] Transmission interaction
-- [ ] qBittorrent interaction
+- [x] qBittorrent interaction
 
 ### PT Website Interaction
 
@@ -35,7 +35,7 @@ This project is currently under development.
 
 - [x] Deluge
 - [x] Transmission
-- [ ] qBittorrent
+- [x] qBittorrent
 - [ ] Rclone/gclone
 - [ ] Cookie management for NexusPHP-based websites
 - [ ] Multi-seedbox/client profile management and selection
@@ -56,6 +56,7 @@ This project is based on the following open-source projects:
 * https://github.com/Trim21/transmission-rpc
 * https://pypi.org/project/torf/
 * https://pypi.org/project/python-qbittorrent/
+* https://github.com/qbittorrent/qBittorrent/wiki/Web-API-Documentation
 * https://github.com/BGmi/BGmi
 * https://github.com/jerrymakesjelly/autoremove-torrents
 * https://github.com/lysssssss/AutoPT
