@@ -9,7 +9,7 @@ from bt_client.transmission import TransmissionClient
 from bt_client import client_base
 
 with open('../config/deluge.yaml', 'r') as f:
-    config = yaml.load(f)
+    config = yaml.safe_load(f)
 
 tr = TransmissionClient(rpc_address=config['rpc_address'],
                         rpc_port=config['rpc_port'],

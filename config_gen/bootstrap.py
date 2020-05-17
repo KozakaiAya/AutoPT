@@ -7,7 +7,7 @@ deluge_config['username'] = 'localclient or <username>:<password>:xx in ~/.confi
 deluge_config['password'] = 'some_long_password or <username>:<password>:xx in ~/.config/deluge/auth'
 
 with open('./deluge_ex.yaml', 'w') as f:
-    yaml.dump(deluge_config, f)
+    yaml.safe_dump(deluge_config, f)
 
 transmission_config = {}
 transmission_config['rpc_address'] = '127.0.0.1'
@@ -17,4 +17,4 @@ transmission_config['password'] = 'password'
 transmission_config['config'] = {'path': '/transmission/'}
 
 with open('./transmission_ex.yaml', 'w') as f:
-    yaml.dump(transmission_config, f)
+    yaml.safe_dump(transmission_config, f)
