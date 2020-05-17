@@ -57,3 +57,10 @@ torrent_status_key = [
     'name', 'torrent_id', 'is_finished'
 ]  # Ref: https://github.com/deluge-torrent/deluge/blob/d62987089e55d6afe7c85addbdcb6ab515db69ea/deluge/core/torrent.py#L646
 TorrentStatus = collections.namedtuple('TorrentStatus', torrent_status_key)
+
+
+def is_torrent_finished(session_status, torrent_idx):
+    if torrent_idx in session_status:
+        return session_status[torrent_idx].is_finished
+    else:
+        return False

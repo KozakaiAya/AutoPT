@@ -6,7 +6,7 @@ if __name__ == '__main__' and __package__ is None:  # WTF is PEP 328
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 from bt_client.deluge import DelugeClient
-import bt_client.deluge
+import bt_client.client_base
 
 with open('../config/deluge.yaml', 'r') as f:
     deluge_config = yaml.load(f)
@@ -42,7 +42,7 @@ while True:
         print(ret.get_error_msg())
         exit(-1)
 
-    if bt_client.deluge.is_torrent_finished(sess, torrent_idx):
+    if bt_client.client_base.is_torrent_finished(sess, torrent_idx):
         print("Download finished")
         ret = deluge.get_torrent_status(torrent_idx)
         print(ret.ret_value)

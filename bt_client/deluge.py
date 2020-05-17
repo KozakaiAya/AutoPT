@@ -7,13 +7,6 @@ from bt_client.client_base import BTClientBase, ClientRet, TorrentStatus
 import bt_client.client_base
 
 
-def is_torrent_finished(session_status, torrent_idx):
-    if torrent_idx in session_status:
-        return session_status[torrent_idx].is_finished
-    else:
-        return False
-
-
 class DelugeClient(BTClientBase):
     def __init__(self, rpc_address, rpc_port, username, password, config=None):
         if config is None:
