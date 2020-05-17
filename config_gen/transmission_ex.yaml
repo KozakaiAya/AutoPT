@@ -1,5 +1,6 @@
+config:
+  path: /transmission/
 password: password
-path: /transmission/
 rpc_address: 127.0.0.1
 rpc_port: 9091
 username: username

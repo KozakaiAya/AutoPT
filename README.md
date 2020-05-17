@@ -55,3 +55,6 @@ This project is based on the following open-source projects:
 * https://github.com/JohnDoee/deluge-client
 * https://github.com/Trim21/transmission-rpc
 * https://pypi.org/project/torf/
+* https://github.com/BGmi/BGmi
+* https://github.com/jerrymakesjelly/autoremove-torrents
+* https://github.com/lysssssss/AutoPT

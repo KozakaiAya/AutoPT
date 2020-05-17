@@ -14,7 +14,7 @@ transmission_config['rpc_address'] = '127.0.0.1'
 transmission_config['rpc_port'] = 9091
 transmission_config['username'] = 'username'
 transmission_config['password'] = 'password'
-transmission_config['path'] = '/transmission/'
+transmission_config['config'] = {'path': '/transmission/'}
 
 with open('./transmission_ex.yaml', 'w') as f:
     yaml.dump(transmission_config, f)
