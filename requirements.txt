@@ -3,3 +3,4 @@ pyyaml
 yapf
 torf
 transmission-rpc
+python-qbittorrent
