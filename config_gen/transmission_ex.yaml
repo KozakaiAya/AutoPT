@@ -1,5 +1,5 @@
 config:
-  path: /transmission/
+  path: /transmission/rpc
 password: password
 rpc_address: 127.0.0.1
 rpc_port: 9091

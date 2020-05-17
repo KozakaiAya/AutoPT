@@ -8,7 +8,7 @@ if __name__ == '__main__' and __package__ is None:  # WTF is PEP 328
 from bt_client.transmission import TransmissionClient
 from bt_client import client_base
 
-with open('../config/deluge.yaml', 'r') as f:
+with open('../config/transmission.yaml', 'r') as f:
     config = yaml.safe_load(f)
 
 tr = TransmissionClient(rpc_address=config['rpc_address'],
@@ -44,7 +44,7 @@ while True:
     if client_base.is_torrent_finished(sess, torrent_idx):
         print("Download finished")
         print(sess)
-        ret = deluge.get_torrent_status(torrent_idx)
+        ret = tr.get_torrent_status(torrent_idx)
         print(ret.ret_value)
 
         break

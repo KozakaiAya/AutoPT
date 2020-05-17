@@ -10,7 +10,7 @@ from utils.cmd import execute
 # Note: Please modify the 'User' in /lib/systemd/system/transmission-daemon.service to 'root'
 # Note: Please follow https://help.ubuntu.com/community/TransmissionHowTo to set the 'rpc-whitelist' and change the 'umask' to 2
 class TransmissionClient(BTClientBase):
-    def __init__(self, rpc_address, rpc_port, username, password, config={'path': '/transmission/'}):
+    def __init__(self, rpc_address, rpc_port, username, password, config={'path': '/transmission/rpc'}):
         """
         Transmission Client for AutoPT
 
