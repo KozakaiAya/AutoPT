@@ -17,7 +17,7 @@ class BTClientBase():
     def get_torrent_status(self, idx):
         raise NotImplementedError
 
-    def del_torrent(self, idx):
+    def del_torrent(self, idx, remove_data=True):
         raise NotImplementedError
 
     def disconnect(self):

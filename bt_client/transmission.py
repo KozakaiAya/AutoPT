@@ -101,7 +101,7 @@ class TransmissionClient(BTClientBase):
         finally:
             return ret
 
-    def del_torrent(self, idx):
+    def del_torrent(self, idx, remove_data=True):
         if not self.connected:
             ret = ClientRet(ret_type=-2)
             return ret
@@ -114,7 +114,7 @@ class TransmissionClient(BTClientBase):
 
         if torrent_exist:
             try:
-                self.client.remove_torrent(idx, delete_data=True)
+                self.client.remove_torrent(idx, delete_data=remove_data)
                 ret = ClientRet(ret_type=5)
             except:
                 ret = ClientRet(ret_type=-5)

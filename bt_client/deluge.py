@@ -96,7 +96,7 @@ class DelugeClient(BTClientBase):
         ret = ClientRet(ret_type=6, ret_value=torrent_status)
         return ret
 
-    def del_torrent(self, idx):
+    def del_torrent(self, idx, remove_data=True):
         if not self.connected:
             ret = ClientRet(ret_type=-2)
             return ret
@@ -104,7 +104,7 @@ class DelugeClient(BTClientBase):
         idx_byte = str(idx).encode()
         torrent_id_list = self.client.core.get_session_state()
         if idx_byte in torrent_id_list:
-            self.client.core.remove_torrent(torrent_id=idx_byte, remove_data=True)
+            self.client.core.remove_torrent(torrent_id=idx_byte, remove_data=remove_data)
             tlist = self.client.core.get_session_state()
             if idx not in tlist:
                 ret = ClientRet(ret_type=5)
