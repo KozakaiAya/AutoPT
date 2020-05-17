@@ -15,7 +15,7 @@ This project is currently under development.
 
 - [x] Definition of base operations
 - [x] Deluge interaction
-- [ ] Transmission interaction
+- [x] Transmission interaction
 - [ ] qBittorrent interaction
 
 ### PT Website Interaction
@@ -34,7 +34,7 @@ This project is currently under development.
 ### Configuration Files
 
 - [x] Deluge
-- [ ] Transmission
+- [x] Transmission
 - [ ] qBittorrent
 - [ ] Rclone/gclone
 - [ ] Cookie management for NexusPHP-based websites
