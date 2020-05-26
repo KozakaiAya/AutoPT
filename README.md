@@ -31,6 +31,10 @@ This project is currently under development.
 - [ ] RAR
 - [ ] PAR2
 
+### Folder Operations
+
+- [ ] Inter/Intra-seedbox file relocation
+
 ### Configuration Files
 
 - [x] Deluge
