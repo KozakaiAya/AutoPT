@@ -7,6 +7,8 @@ from bt_client.client_base import BTClientBase, ClientRet, TorrentStatus
 import bt_client.client_base
 
 
+# Only tested on Deluge 1.3.15
+# TODO: Export functions in Deluge v2.0+ may have different return value type (bytearray vs. string, etc.)
 class DelugeClient(BTClientBase):
     def __init__(self, rpc_address, rpc_port, username, password, config=None):
         if config is None:
