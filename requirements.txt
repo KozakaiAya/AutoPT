@@ -5,3 +5,4 @@ torf
 transmission-rpc
 python-qbittorrent
 beautifulsoup4
+lxml

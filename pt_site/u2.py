@@ -23,7 +23,7 @@ class U2Site(PTSiteBase):
         self.uid = str(config['uid'])
 
         self.cookie_string = ''
-        for idx, key, value in enumerate(self.cookie_dict.items()):
+        for idx, (key, value) in enumerate(self.cookie_dict.items()):
             if idx > 0:
                 self.cookie_string += '; '
             self.cookie_string += key + '=' + value

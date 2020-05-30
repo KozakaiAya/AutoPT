@@ -25,16 +25,84 @@ time.sleep(1)
 
 ret = site.minimize_download_cost(209)
 if ret.successful():
-    print('Magic succeeded')
+    print('Download magic succeeded')
+    print('Ucoin used:', ret.ret_value)
 else:
-    print('Magic failed')
+    print('Download magic failed')
     exit(0)
 
 time.sleep(1)
 
 ret = site.maximize_upload_gain(209)
 if ret.successful():
-    print('Magic succeeded')
+    print('Upload magic succeeded')
+    print('Ucoin used:', ret.ret_value)
 else:
-    print('Magic failed')
+    print('Upload magic failed')
     exit(0)
+
+time.sleep(1)
+
+ret = site.minimize_download_cost(209, target='ALL')
+if ret.successful():
+    print('Global download magic succeeded')
+    print('Ucoin used:', ret.ret_value)
+else:
+    print('Global download magic failed')
+    exit(0)
+
+time.sleep(1)
+
+ret = site.maximize_upload_gain(209, target='ALL')
+if ret.successful():
+    print('Global upload magic succeeded')
+    print('Ucoin used:', ret.ret_value)
+else:
+    print('Global upload magic failed')
+    exit(0)
+
+time.sleep(1)
+
+ret = site.minimize_download_cost(209, target=44998)
+if ret.successful():
+    print('Other download magic succeeded')
+    print('Ucoin used:', ret.ret_value)
+else:
+    print('Other download magic failed')
+    exit(0)
+
+time.sleep(1)
+
+ret = site.maximize_upload_gain(209, target=44998)
+if ret.successful():
+    print('Other upload magic succeeded')
+    print('Ucoin used:', ret.ret_value)
+else:
+    print('Other upload magic failed')
+    exit(0)
+
+from bt_client.deluge import DelugeClient
+
+with open('../config/deluge.yaml', 'r') as f:
+    deluge_config = yaml.load(f)
+
+deluge = DelugeClient(rpc_address=deluge_config['rpc_address'],
+                      rpc_port=deluge_config['rpc_port'],
+                      username=deluge_config['username'],
+                      password=deluge_config['password'])
+
+ret = deluge.connect()
+if ret.successful():
+    print("Connect Succeeded")
+else:
+    print(ret.get_error_msg())
+
+ret = deluge.add_torrent('./test_download/209.torrent', download_path='./test_download')
+if ret.successful():
+    torrent_idx = ret.ret_value
+    print("Torrent ID:", torrent_idx)
+    with open('./test_download/torrent_id', 'w') as f:
+        f.write(torrent_idx)
+else:
+    print(ret.get_error_msg())
+    exit(-1)
