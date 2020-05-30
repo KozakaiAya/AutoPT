@@ -21,12 +21,16 @@ else:
     print("Get torrent failed")
     exit(0)
 
+time.sleep(1)
+
 ret = site.minimize_download_cost(209)
 if ret.successful():
     print('Magic succeeded')
 else:
     print('Magic failed')
     exit(0)
+
+time.sleep(1)
 
 ret = site.maximize_upload_gain(209)
 if ret.successful():
