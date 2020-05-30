@@ -20,17 +20,10 @@ class SiteRet():
         self.ret_value = ret_value
 
         self.ret_dict = {
-            6: "Torrent Info",
-            5: "Delete Torrent Successful",
-            4: "Torrent List",
-            3: "Torrent ID",
-            2: "Client Connected",
+            3: "Torrent Promotion Successful",
+            2: "Torrent Content",
             0: "All Green",
-            -2: "Client Not Connected",
-            -3: "Torrent Add Error",
-            -4: "Torrent List Error",
-            -5: "Delete Torrent Error",
-            -6: "Torrent Info Error"
+            -3: "Torrent Promotion Failed"
         }
 
     def get_error_msg(self):
@@ -41,4 +34,3 @@ class SiteRet():
 
     def successful(self):
         return self.ret_type >= 0
-

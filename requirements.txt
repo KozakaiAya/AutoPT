@@ -4,3 +4,4 @@ yapf
 torf
 transmission-rpc
 python-qbittorrent
+beautifulsoup4
