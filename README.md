@@ -41,7 +41,7 @@ This project is currently under development.
 - [x] Transmission
 - [x] qBittorrent
 - [ ] Rclone/gclone
-- [ ] Cookie management for NexusPHP-based websites
+- [x] Cookie management for NexusPHP-based websites
 - [ ] Multi-seedbox/client profile management and selection
 - [ ] IFTTT, chain of tasks
 - [ ] RSS (maybe...)
