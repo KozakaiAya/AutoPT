@@ -44,7 +44,7 @@ class U2Site(PTSiteBase):
         self.tmpdir = tempfile.mkdtemp(prefix='AutoPT_U2_')
 
     def get_torrent_by_id(self, torrent_id):
-        link = "https://u2.dmhy.org/download.php?id=" + self.uid + "&passkey=" + self.passkey + "&http=1"
+        link = "https://u2.dmhy.org/download.php?id=" + str(torrent_id) + "&passkey=" + self.passkey + "&http=1"
         torrent_content = requests.get(link).content
 
         torrent_path = Path(self.tmpdir, str(torrent_id) + '.torrent')
