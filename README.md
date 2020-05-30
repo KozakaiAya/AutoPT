@@ -20,8 +20,8 @@ This project is currently under development.
 
 ### PT Website Interaction
 
-- [ ] Definition of base operations
-- [ ] U2 interaction
+- [x] Definition of base operations
+- [x] U2 interaction
 - [ ] RSS Feed (maybe...)
 
 ### Backup Software Interaction
